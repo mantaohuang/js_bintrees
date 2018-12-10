@@ -21,8 +21,7 @@
   "scripts": {
     "test": "nodeunit ./test/test_*.js && jshint lib/*.js index.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "nodeunit": "0.9.1",
     "jshint": "0.5.9",

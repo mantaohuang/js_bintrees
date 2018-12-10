@@ -138,7 +138,9 @@ TreeBase.prototype.iterator = function() {
 TreeBase.prototype.each = function(cb) {
     var it=this.iterator(), data;
     while((data = it.next()) !== null) {
-        cb(data);
+        if(cb(data) === false) {
+            return;
+        }
     }
 };
 
@@ -146,7 +148,9 @@ TreeBase.prototype.each = function(cb) {
 TreeBase.prototype.reach = function(cb) {
     var it=this.iterator(), data;
     while((data = it.prev()) !== null) {
-        cb(data);
+        if(cb(data) === false) {
+            return;
+        }
     }
 };
 
@@ -463,7 +467,6 @@ function double_rotate(root, dir) {
     return single_rotate(root, dir);
 }
 
-module.exports = RBTree;
-};
+module.exports = RBTree;};
 return require('__main__');
 })(window);
