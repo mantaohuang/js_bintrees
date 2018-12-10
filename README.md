@@ -2,6 +2,40 @@ Augmented Binary Search Trees
 
 A fork of Binary Trees (http://travis-ci.org/vadimg/js_bintrees) that implements augumented information stored in nodes. It allows easy implementations of operations such as Select (selecting the i-th element), Rank (find the rank of element x in the tree), and prefix sum (partial sum) in O(log(n)) worst case time.
 
+Quickstart
+------------
+```javascript
+var ARBTree = require('./lib/arbtree.js');
+function get_sum(node){
+    if(node==null){
+        return 0;
+    }
+    return node.aug_data.sum;
+}
+var aug_processor = node=>{
+    var sum = 0;
+    sum += get_sum(node.left);
+    sum += get_sum(node.right);
+    if(node.data!=undefined && node.data!=null){
+        sum += node.data;
+    }
+    return {sum:sum}
+}
+
+var tree = new ARBTree(function(a, b) { return a - b; }, aug_processor);
+
+
+tree.insert(5);
+tree.insert(100);
+tree.insert(3);
+tree.insert(2);
+tree.insert(4);
+tree.insert(1);
+
+tree.remove(5);
+
+console.log(tree._root.aug_data.sum);
+```
 
 
 ============
