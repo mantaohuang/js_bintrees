@@ -1,4 +1,9 @@
-Binary Trees [![Build Status](https://secure.travis-ci.org/vadimg/js_bintrees.png?branch=master)](http://travis-ci.org/vadimg/js_bintrees)
+Augmented Binary Search Trees
+
+A fork of Binary Trees (http://travis-ci.org/vadimg/js_bintrees) that implements augumented information stored in nodes. It allows easy implementations of operations such as Select (selecting the i-th element), Rank (find the rank of element x in the tree), and prefix sum (partial sum) in O(log(n)) worst case time.
+
+
+
 ============
 
 This package provides Binary and Red-Black Search Trees written in Javascript. It is released under the MIT License.
